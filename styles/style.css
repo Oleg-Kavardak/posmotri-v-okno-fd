@@ -8,7 +8,21 @@ html {
   block-size: 100%;
 }
 
+.visually-hidden {
+  position: absolute; 
+  width: 1px; 
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden; 
+} 
+
 .page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -16,6 +30,165 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+}
+
+.content {
+  display: grid;
+  grid-template-areas: "result content__details";
+  align-items: end;
+  width: 1140px;
+  gap: 30px;
+}
+
+.result {
+  width: 711px;
+}
+
+.result__video-container {
+  margin-bottom: 16px;
+  height: 386px;
+  position: relative;
+}
+
+.result__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.search-form {
+  display: flex;
+  gap: 40px;
+}
+
+.search-form__fieldset {
+  display: grid;
+  gap: 5px;
+  border: none;
+}
+
+.search-form__fieldset-title {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.search-form__textfield {
+  font-size: 18px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  width: 225px;
+  font-family: "Fira Sans Condensed";
+  border-top: solid 1px #fff;
+  border-bottom: solid 1px #fff;
+  appearance: none;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+}
+
+.search-form__label {
+  display: flex;
+  height: fit-content;
+  cursor: pointer;
+}
+
+.search-form__label-text {
+  line-height: 100%;
+}
+
+.search-form__pseudo-checkbox {
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  margin-right: 5px;
+  vertical-align: middle;
+  height: 19px;
+  width: 19px;
+  border: solid 1px #fff;
+}
+
+input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  background: #fff;
+}
+
+.search-form__submit-button {
+  align-self: flex-end; 
+}
+
+.content__details {
+  display: grid;
+  gap: 22px;
+  width: 399px;
+}
+
+.title {
+  font-family: Oswald;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 94%;
+  text-transform: uppercase;
+}
+
+.content__accent {
+  color: #545050;
+}
+
+.content__list-container {
+  height: 298px;
+  width: 100%;
+  overflow-y: scroll;
+  padding: 0 2px;
+  position: relative;
+}
+
+.content__list-item {
+  margin-bottom: 30px;
+}
+
+.content__card-link {
+  text-decoration: none;
+}
+
+.content__video-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.content__video-card-title {
+  color: #FFF;
+  font-family: Oswald;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 113%;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 196px;
+}
+
+.content__video-card-description {
+  color: #FFF;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 120%;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+  object-fit: cover;
 }
 
 h1,
@@ -35,6 +208,70 @@ fieldset {
 ul,
 ol {
   list-style: none;
+}
+
+/* Кнопка */
+.button {
+  height: 34px;
+  background: transparent;
+  border: solid 1px #fff;
+  color: #fff;
+  font-family: "Fira Sans Condensed";
+  font-size: 18px;
+  font-weight: 700;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Элементы состояния */
+.search-form__textfield:focus,
+.search-form__label:has(:focus),
+.content__card-link:focus, 
+.button:focus {
+  outline: none;
+}
+
+.search-form__textfield:focus-visible,
+.search-form__label:has(:focus-visible),
+.content__list-item:has(:focus-visible), 
+.button:focus-visible {
+  outline: solid 1px #fff;
+  outline-offset: 1px;
+}
+
+.search-form__textfield:active {
+  border: solid 1px #fff;
+  outline: none;
+}
+
+input[type="checkbox"]:active + .search-form__pseudo-checkbox::after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  background: #fff;
+}
+
+.search-form__label:hover .search-form__label-text {
+  text-decoration-line: underline;
+  text-decoration-skip-ink: none;
+}
+
+.content__list-item:active {
+  background: #545050;
+}
+
+.content__list-item:hover .content__video-card-title, .content__list-item:hover .content__video-card-description {
+  text-decoration-line: underline;
+  text-decoration-skip-ink: none;
+}
+
+.button:active {
+  background: #545050;
+}
+
+.button:hover {
+  text-decoration-line: underline;
+  text-decoration-skip-ink: none;
 }
 
 /* Кастомный скроллбар */
