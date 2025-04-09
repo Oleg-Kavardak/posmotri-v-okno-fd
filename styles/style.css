@@ -162,6 +162,7 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
 }
 
 .content__list-container {
+  position: relative;
   display: grid;
   gap: 30px;
   height: 298px;
@@ -176,6 +177,10 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   gap: 30px;
 }
 
+.content__list-item:has(.content__card-link_current) {
+  background: #545050;
+}
+
 .content__card-link {
   text-decoration: none;
 }
@@ -183,11 +188,12 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
 .content__video-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  justify-items: end;
 }
 
 .content__video-card-title {
   color: #FFF;
-  font-family: Oswald;
+  font-family: "Oswald", "Arial Narrow", sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 113%;
@@ -221,7 +227,7 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   background: transparent;
   border: solid 1px #fff;
   color: #fff;
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", "Arial Narrow", sans-serif;
   font-size: 18px;
   font-weight: 700;
   width: 100%;
